@@ -4,7 +4,7 @@ metadata:
   name: phoenix-backend
   labels: { app.kubernetes.io/name: phoenix-backend, app.kubernetes.io/part-of: phoenix }
 spec:
-  replicas: 1
+  replicas: 5
   selector:
     matchLabels: { app.kubernetes.io/name: phoenix-backend }
   template:
