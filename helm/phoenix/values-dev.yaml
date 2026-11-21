@@ -2,7 +2,7 @@ environment: dev
 backend:
   replicas: 2
   image:
-    repository: docker pull ghcr.io/mahendrapaidi2144-ctrl/phoenix-backend
+    repository: ghcr.io/mahendrapaidi2144-ctrl/phoenix-backend
     tag: sha-1b76d40
 frontend:
   replicas: 1
