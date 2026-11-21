@@ -21,8 +21,8 @@ spec:
           env:
             - name: DB_PASSWORD
               valueFrom: { secretKeyRef: { name: phoenix-db, key: password } }
-            - name: ERROR_RATE
-              value: "0.5"
+            - name: DATABASE_URL
+              value: postgresql://phoenix:$(DB_PASSWORD)@phoenix-db:5432/phoenix
           readinessProbe: { httpGet: { path: /readyz, port: http }, periodSeconds: 5 }
           livenessProbe: { httpGet: { path: /healthz, port: http }, periodSeconds: 10 }
           resources:
