@@ -1,11 +1,16 @@
 environment: prod
 backend:
   replicas: 3
+  image:
+    repository: docker pull ghcr.io/mahendrapaidi2144-ctrl/phoenix-backend
+    tag: sha-1b76d40
   resources:
     requests: { cpu: 150m, memory: 192Mi }
     limits: { cpu: 500m, memory: 512Mi }
 frontend:
   replicas: 2
+  image:
+    repository: ghcr.io/mahendrapaidi2144-ctrl/phoenix-frontend
+    tag: sha-1b76d40
   service:
-    type: NodePort
-    nodePort: 30080
+    type: LoadBalancer
