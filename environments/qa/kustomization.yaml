@@ -6,7 +6,7 @@ resources:
   - namespace.yaml
 images:
   - name: phoenix-backend
-    newTag: v1
+    newTag: v2
   - name: phoenix-frontend
     newTag: v1
 replicas:
