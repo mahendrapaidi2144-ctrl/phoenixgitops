@@ -1,0 +1,11 @@
+environment: prod
+backend:
+  replicas: 3
+  resources:
+    requests: { cpu: 150m, memory: 192Mi }
+    limits: { cpu: 500m, memory: 512Mi }
+frontend:
+  replicas: 2
+  service:
+    type: NodePort
+    nodePort: 30080

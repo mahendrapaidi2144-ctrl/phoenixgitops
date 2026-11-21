@@ -1,0 +1,6 @@
+apiVersion: v2
+name: phoenix
+description: Project Phoenix e-commerce platform (storefront, product API, PostgreSQL)
+type: application
+version: 1.0.0
+appVersion: "2.0.0"

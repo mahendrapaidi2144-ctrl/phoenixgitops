@@ -1,0 +1,28 @@
+# Defaults shared by every environment.
+# Each values-<env>.yaml overrides only what is different.
+environment: dev
+
+frontend:
+  replicas: 1
+  image:
+    repository: phoenix-frontend
+    tag: v1
+  service:
+    type: ClusterIP
+    nodePort: ""
+  resources:
+    requests: { cpu: 20m, memory: 32Mi }
+    limits: { cpu: 200m, memory: 128Mi }
+
+backend:
+  replicas: 1
+  image:
+    repository: phoenix-backend
+    tag: v2
+  errorRate: "0"
+  resources:
+    requests: { cpu: 50m, memory: 96Mi }
+    limits: { cpu: 250m, memory: 256Mi }
+
+database:
+  storage: 1Gi
