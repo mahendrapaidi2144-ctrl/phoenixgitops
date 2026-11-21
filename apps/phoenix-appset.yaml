@@ -1,0 +1,37 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: phoenix
+  namespace: argocd
+spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
+  generators:
+    - list:
+        elements:
+          - env: dev
+          - env: qa
+          - env: prod
+  template:
+    metadata:
+      name: "phoenix-{{.env}}"
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/mahendrapaidi2144-ctrl/phoenixgitops.git
+        targetRevision: main
+        path: helm/phoenix
+        helm:
+          releaseName: phoenix
+          valueFiles:
+            - values.yaml
+            - "values-{{.env}}.yaml"
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: "phoenix-{{.env}}"
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
