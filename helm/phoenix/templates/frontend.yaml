@@ -44,3 +44,4 @@ spec:
       {{- if .Values.frontend.service.nodePort }}
       nodePort: {{ .Values.frontend.service.nodePort }}
       {{- end }}
+
