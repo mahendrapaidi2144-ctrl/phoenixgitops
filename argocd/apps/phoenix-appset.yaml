@@ -18,7 +18,7 @@ spec:
     spec:
       project: default
       source:
-        repoURL: https://github.com/<you>/phoenix-gitops.git
+        repoURL: https://github.com/mahendrapaidi2144-ctrl/phoenixgitops.git
         targetRevision: main
         path: helm/phoenix
         helm:
