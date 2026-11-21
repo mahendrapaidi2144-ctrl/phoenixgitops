@@ -1,6 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: phoenix-promo
-data:
-  BANNER: "Diwali sale: 20% off"
