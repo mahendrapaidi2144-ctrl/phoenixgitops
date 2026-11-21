@@ -1,22 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: phoenix
+  name: phoenix-prod
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/mahendrapaidi2144-ctrl/phoenixgitops.git
     targetRevision: main
-    path: apps
-    directory:
-      recurse: true
+    path: environments/prod
   destination:
     server: https://kubernetes.default.svc
-    namespace: phoenix
+    namespace: phoenix-prod
   syncPolicy:
     automated:
-       prune: true
-       selfHeal: true
+      prune: true
+      selfHeal: true
     syncOptions:
       - CreateNamespace=true

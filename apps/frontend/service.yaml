@@ -4,6 +4,6 @@ metadata:
   name: phoenix-frontend
   labels: { app.kubernetes.io/name: phoenix-frontend, app.kubernetes.io/part-of: phoenix }
 spec:
-  type: NodePort
+  type: ClusterIP
   selector: { app.kubernetes.io/name: phoenix-frontend }
-  ports: [{ name: http, port: 80, targetPort: http, nodePort: 30080 }]
+  ports: [{ name: http, port: 80, targetPort: http }]
